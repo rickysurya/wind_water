@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 )
 
 type student struct {
@@ -46,17 +47,18 @@ func main() {
 	nama := []string{"Abdul", "Budi", "Caca", "Dede", "Erlan"}
 	generator := newNamaBiodata(nama)
 	output := generator.biodata()
-	var arg string = os.Args[1].lower()
-	var inama int
+	arg, _ := strconv.Atoi(os.Args[1])
+
+	var inama string
 
 	for i, v := range nama {
-		if arg == v {
-			inama = i
+		if arg == i {
+			inama = v
 		}
 	}
 
 	for i, v := range output {
-		if inama == i {
+		if inama == v.nama {
 			fmt.Println("ID :", i)
 			fmt.Println("Nama :", v.nama)
 			fmt.Println("Pekerjaan :", v.pekerjaan)
