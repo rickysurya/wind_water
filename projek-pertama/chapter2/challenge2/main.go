@@ -1,6 +1,6 @@
 package main
 
-import "projek-pertama/chapter2/challenge1/routers"
+import "projek-pertama/chapter2/challenge2/routers"
 
 func main() {
 	var PORT = ":4000"

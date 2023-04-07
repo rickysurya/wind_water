@@ -1,4 +1,4 @@
-module projek-pertama/chapter2/challenge1
+module projek-pertama/chapter2/challenge2
 
 go 1.19
 

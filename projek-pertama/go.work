@@ -1,8 +1,0 @@
-go 1.19
-
-use (
-	./sesi6
-	./sesi7
-	chapter2/challenge1
-    
-)

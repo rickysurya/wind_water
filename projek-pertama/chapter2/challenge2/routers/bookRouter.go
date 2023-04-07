@@ -2,7 +2,7 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"projek-pertama/chapter2/challenge1/controllers"
+	"projek-pertama/chapter2/challenge2/controllers"
 )
 
 func StartServer() *gin.Engine {

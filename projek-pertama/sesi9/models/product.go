@@ -1,6 +1,11 @@
 package models
 
-import "time"
+import (
+	"time"
+	"errors"
+	"gorm.io/gorm"
+	"fmt"
+)
 
 type Product struct {
 	ID			uint    `gorm:"primaryKey"` 
@@ -10,10 +15,11 @@ type Product struct {
 	CreatedAt	time.Time
 	UpdatedAt	time.Time
 }
-type User struct {
-	ID        	uint     ` gorm:"primaryKey"`
-	Name      	string   `gorm:"not null;unique;type:varchar(191)"`
-	Products	[]Product
-	CreatedAt 	time.Time
-	UpdatedAt	time.Time
+
+func (p *Product) BeforeCreate(tx *gorm.DB) (err error){
+	fmt.Println("Product Before Create()")
+	if len(p.Name) < 4{
+		err = errors.New("product name is too short")
+	}
+	return
 }

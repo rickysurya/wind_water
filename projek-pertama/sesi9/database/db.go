@@ -3,7 +3,7 @@ package database
 import(
 	"fmt"
 	"log"
-	"projek-pertama/orm_gorm/models"
+	"projek-pertama/sesi9/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -14,13 +14,13 @@ var (
 	user	="postgres"
 	password="admin"
 	dbPort	="5432"
-	dbname	="learning-gorm"
+	dbName	="learning-gorm"
 	db		*gorm.DB	
 	err		error
 )
 
 func StartDB(){
-	config := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", host, user, password, dbname, dbPort)
+	config := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", host, user, password, dbName, dbPort)
 
 	db, err = gorm.Open(postgres.Open(config), &gorm.Config{})
 	if err != nil {
@@ -28,4 +28,8 @@ func StartDB(){
 	}
 
 	db.Debug().AutoMigrate(models.User{}, models.Product{})
+}
+
+func GetDB() *gorm.DB {
+	return db
 }

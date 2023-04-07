@@ -1,4 +1,4 @@
-module orm_gorm
+module projek-pertama/sesi9
 
 go 1.19
 
